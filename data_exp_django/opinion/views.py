@@ -13,8 +13,8 @@ import random
 import pprint
 from django.contrib.sites.shortcuts import get_current_site
 
-ID_FILE = 'idlist.json'
-GRAPH_FILE = 'graph.json'
+ID_FILE = 'data_exp_django/idlist.json'
+GRAPH_FILE = 'data_exp_django/graph.json'
 def x():
 	pass
 
@@ -35,7 +35,9 @@ def serve_html(file_path):
 
 @csrf_exempt
 def index(request):
-	html = serve_html('/opt/python/current/app/data_exp_django/opinion/static/index.html')
+	html = serve_html('data_exp_django/opinion/static/index.html')
+	# opinion/static/index.html'
+	# use this for local dev
 	return HttpResponse(html)
 
 @csrf_exempt
@@ -210,7 +212,7 @@ def dump_data_till_now_in_file(filename):
 def download_data(request):
 	try:
 		filename = str(int(time.time())) + '_' + str(random.randint(1000,1000000)) + '.txt'
-		filepath = 'opinion/static/data/' + filename
+		filepath = 'data_exp_django/opinion/static/data/' + filename
 		dump_data_till_now_in_file(filepath)
 		return_object = {}
 		current_url = 'http://' + str(get_current_site(request))
@@ -226,7 +228,7 @@ def reset_and_download_data(request):
 	# this will clear the models but will create a backup of the data in the backup folder
 	try:
 		filename = str(int(time.time())) + '_' + str(random.randint(1000,1000000)) + '.txt'
-		filepath = 'opinion/static/data/' + filename
+		filepath = 'data_exp_django/opinion/static/data/' + filename
 		dump_data_till_now_in_file(filepath)
 		opinion_list.objects.all().delete() # this will clear the DB so make backup !!
 		return_object = {}
