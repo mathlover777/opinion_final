@@ -40,7 +40,7 @@ def index(request):
 
 @csrf_exempt
 def dashboard(request):
-	html = serve_html('opinion/static/restricted/dashboard.html')
+	html = serve_html('data_exp_django/opinion/static/restricted/dashboard.html')
 	return HttpResponse(html)
 
 def get_params(request,param_list):
