@@ -52,6 +52,10 @@ function getCookie(cname) {
 function dummy_success(result){
 	// alert('result = ' + result);
 }
+function clear_opinion_box_if_success(result){
+	$('#opinion_text').val('')
+	return;
+}
 
 function make_ajax_request(object_to_pass,url_func,success_function){
 	var submit_url = base_url + url_func;
@@ -72,6 +76,10 @@ function make_ajax_request(object_to_pass,url_func,success_function){
 
 function submit_opinion(){
 	var text = $('#opinion_text').val();
+	if (text == ""){
+		alert("Can not submit empty opinion !");
+		return;
+	}
 	var value = $('#example').val();
 	var student_id = $('#roll_number').val();
 	if (student_id == ""){
@@ -87,7 +95,7 @@ function submit_opinion(){
 	opinion.value = value;
 	opinion.student_id = student_id;
 
-	make_ajax_request(opinion,"add_opinion",dummy_success);
+	make_ajax_request(opinion,"add_opinion",clear_opinion_box_if_success);
 }
 
 
