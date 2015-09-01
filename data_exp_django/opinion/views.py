@@ -35,7 +35,7 @@ def serve_html(file_path):
 
 @csrf_exempt
 def index(request):
-	html = serve_html('static/index.html')
+	html = serve_html('./static/index.html')
 	return HttpResponse(html)
 
 @csrf_exempt
