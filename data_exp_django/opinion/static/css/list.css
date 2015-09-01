@@ -1,0 +1,18 @@
+html, body, .full-height {
+    height: 100%;
+}
+#well1 {
+    height: 15%; /*fall back for IE8, Safari 5.1, Opera Mini and pre-4.4 Android browsers*/
+    height: calc(15% - 20px);
+    overflow: hidden; /*better to decide how you want to handle this than to let the browser decide*/
+}
+#well2 {
+	max-height: 200px;
+    height: 60%;
+    margin-bottom: 0;
+    overflow: scroll;
+    width:100%;
+}
+/*.in_line{
+	display:inline-block;
+}*/

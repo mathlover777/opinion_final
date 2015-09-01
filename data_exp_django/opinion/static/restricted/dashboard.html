@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<title>DASHBOARD</title>
+		<!-- Bootstrap -->
+		<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<!-- <link rel="stylesheet" href="bower_components/jquery-bar-rating/dist/themes/fontawesome-stars.css"> -->
+		<link rel="stylesheet" href="/static/bower_components/jquery-bar-rating/dist/themes/bars-1to10.css">
+		<link rel="stylesheet" type="text/css" href="/static/build/css/horizBarChart.css">
+		<link rel="stylesheet" type="text/css" href="/static/build/css/style.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/list.css">
+	</head>
+	<body>
+		<h1>ALL OPINION DASHBOARD</h1>
+
+		<!-- Form for opinion input -->
+		<input type="text" class="form-control" id="server_url" value="http://127.0.0.1:8000/opinion/">
+	<button type="submit" class="btn btn-default" id="get_all">Fetch All Opinion</button>
+	<button type="submit" class="btn btn-default" id="download_all">Download Opinions</button>
+
+	<button type="submit" class="btn btn-default" id="reset_all">Reset Opinions</button>
+
+<div class="container full-height">
+		  <div class="row full-height">
+		      <div class="col-md-10 full-height">          
+		          <div class="well" id="well2">
+		          </div>
+		      </div>
+		  </div>
+	</div>
+
+	
+
+	
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="/static/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="/static/bower_components/jquery-ui/jquery-ui.min.js"></script>
+		<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/static/js/application_dashboard.js" type="text/javascript"></script>
+		<script src="/static/js/bootbox.min.js"></script>
+
+		<script type="text/javascript">
+			 if (typeof jQuery != 'undefined') {  
+						// jQuery is loaded => print the version
+						// alert(jQuery.fn.jquery);
+				}else{
+					alert("Jquery not found !!");
+				}
+
+		</script>
+	</body>
+</html>
