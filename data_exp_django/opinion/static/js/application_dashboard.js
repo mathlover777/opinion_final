@@ -22,8 +22,9 @@ function handle_reset(result){
 	parsed_result = JSON.parse(result);
 	if (parsed_result.success == 'true'){
 		provide_download_link(result);
+		return;
 	}
-	alert(result.msg);
+	alert(parsed_result.msg);
 }
 function reset_confirm_callback(result){
 	// alert(result);
