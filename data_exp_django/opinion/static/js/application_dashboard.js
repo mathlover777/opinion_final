@@ -18,6 +18,13 @@ function provide_download_link(result){
 	alert(download_link);
 	return;
 }
+function handle_reset(result){
+	parsed_result = JSON.parse(result);
+	if (parsed_result.success == 'true'){
+		provide_download_link(result);
+	}
+	alert(result.msg);
+}
 function reset_confirm_callback(result){
 	// alert(result);
 	// return;
@@ -28,7 +35,7 @@ function reset_confirm_callback(result){
 	
 	var post_object = new Object();
 	post_object.password = password_given;
-	make_ajax_request(post_object,"reset_and_download_data",provide_download_link);
+	make_ajax_request(post_object,"reset_and_download_data",handle_reset);
 
 
 	return;
