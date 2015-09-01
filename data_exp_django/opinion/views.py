@@ -227,6 +227,13 @@ def download_data(request):
 def reset_and_download_data(request):
 	# this will clear the models but will create a backup of the data in the backup folder
 	try:
+		param_dict = get_params(request,[('password','')])
+		password = param_dict['password']
+		if password != 'ghola@25b':
+			return_object = {}
+			return_object["msg"] = "password incorrect !"
+			return_object["success"] = "false"
+			return HttpResponse(json.dumps(return_object,indent = 4))
 		filename = str(int(time.time())) + '_' + str(random.randint(1000,1000000)) + '.txt'
 		filepath = 'data_exp_django/opinion/static/data/' + filename
 		dump_data_till_now_in_file(filepath)

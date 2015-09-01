@@ -5,26 +5,6 @@ $(document).ready(function() {
 	$('#reset_all').click(reset_all);
 
 });
-// var Example = (function() {
-//     "use strict";
-
-//     var elem,
-//         hideHandler,
-//         that = {};
-
-//     that.init = function(options) {
-//         elem = $(options.selector);
-//     };
-
-//     that.show = function(text) {
-//         clearTimeout(hideHandler);
-
-//         elem.find("span").html(text);
-//         elem.delay(200).fadeIn().delay(4000).fadeOut();
-//     };
-
-//     return that;
-// }());
 function download_all(){
 	var post_object = new Object();
 	post_object.dummy = 'dummy';
@@ -41,16 +21,20 @@ function provide_download_link(result){
 function reset_confirm_callback(result){
 	// alert(result);
 	// return;
-	if (result == true){
-		// call reset code
-		var post_object = new Object();
-		post_object.dummy = 'dummy';
-		make_ajax_request(post_object,"reset_and_download_data",provide_download_link);
+	if (result == null){
+		return;
 	}
+	var password_given = result;
+	
+	var post_object = new Object();
+	post_object.password = password_given;
+	make_ajax_request(post_object,"reset_and_download_data",provide_download_link);
+
+
 	return;
 }
 function reset_all(){
-	bootbox.confirm("Are you sure?", reset_confirm_callback); 
+	bootbox.prompt("Are you sure to reset and download all data ? Enter Password to do so ", reset_confirm_callback); 
 	return;
 }
 function get_all(){
